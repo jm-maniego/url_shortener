@@ -3,7 +3,7 @@ class LinksController < ApplicationController
 
   def index
     @link = Link.new
-    @links = Link.order('clicks DESC').paginate(page: 1)
+    @links = Link.order('clicks DESC').paginate(page: 1, per_page: 10)
   end
 
   # GET /links/1
