@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1>Top Links!</h1>
+<%= will_paginate @links %>
+<table class="bordered striped">
+  <thead>
+    <tr>
+      <th>Given url</th>
+      <th>Shortened link</th>
+      <th>Clicks</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @links.each do |link| %>
+      <tr>
+        <td><%= truncate(link.given_url, length: 50)%></td>
+        <td><%= link_to visit_link_url(link.slug), visit_link_url(link.slug), target: '_blank' %></td>
+        <td><%= link.clicks %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @links %>
