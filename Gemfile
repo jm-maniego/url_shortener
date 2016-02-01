@@ -47,3 +47,6 @@ end
 
 gem 'materialize-sass'
 gem 'will_paginate'
+gem 'rails_12factor', group: :production
+
+ruby "2.3.0"
