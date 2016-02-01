@@ -45,6 +45,7 @@ group :development do
   gem 'spring'
 end
 
+gem 'pry'
 gem 'materialize-sass'
 gem 'will_paginate'
 gem 'rails_12factor', group: :production
