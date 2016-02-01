@@ -2,8 +2,9 @@ class LinksController < ApplicationController
   before_action :set_link, only: [:show]
 
   def index
-    @link = Link.new
-    @links = Link.order('clicks DESC').paginate(page: 1, per_page: 10)
+    @link  = Link.new
+    page   = params[:page] || 1
+    @links = Link.order('clicks DESC').paginate(page: page, per_page: 10)
   end
 
   # GET /links/1
