@@ -22,7 +22,7 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.json
   def create
-    @link = Link.find_or_initialize
+    @link = Link.new(link_params)
 
     respond_to do |format|
       if @link.save
