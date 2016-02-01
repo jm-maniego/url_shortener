@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to "New Links!", newly_created_links_url, class: "waves-effect waves-light btn" %>
-<h1>Top Links!</h1>
-<%= will_paginate @top_links %>
+<%= link_to "Top Links!", root_url, class: "waves-effect waves-light btn" %>
+
+<h1>New Links!</h1>
+<%= will_paginate @new_links %>
 <table class="bordered striped">
   <thead>
     <tr>
@@ -13,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @top_links.each do |link| %>
+    <% @new_links.each do |link| %>
       <tr>
         <td><%= truncate(link.given_url, length: 50)%></td>
         <td><%= link_to visit_link_url(link.slug), visit_link_url(link.slug), target: '_blank' %></td>
@@ -22,4 +23,4 @@
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @top_links %>
+<%= will_paginate @new_links %>

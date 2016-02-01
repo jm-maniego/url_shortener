@@ -4,7 +4,13 @@ class LinksController < ApplicationController
   def index
     @link  = Link.new
     page   = params[:page] || 1
-    @links = Link.order('clicks DESC').paginate(page: page, per_page: 10)
+    @top_links = Link.order('clicks DESC').paginate(page: page, per_page: 10)
+  end
+
+  def newly_created
+    @link  = Link.new
+    page   = params[:page] || 1
+    @new_links = Link.order('created_at DESC').paginate(page: page, per_page: 10)
   end
 
   # GET /links/1
@@ -27,7 +33,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to root_path, notice: 'Link was successfully created.' }
+        format.html { redirect_to newly_created_links_path, notice: 'Link was successfully created.' }
         format.json { render :show, status: :created, location: @link }
       else
         format.html { render :new }

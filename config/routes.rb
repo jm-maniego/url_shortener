@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root "links#index"
   get ':slug' => 'links#show', as: 'visit_link'
-  resources :links
+  resources :links do
+    collection do
+      get 'newly_created'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
